@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="corner">10dp</dimen>
+    <dimen name="ques_field_margin_betwen_field">18dp</dimen>
+</resources>
