@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,12 +7,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageButton
+        android:id="@+id/ib_close_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_close"
         android:layout_marginStart="25dp"
         android:layout_marginTop="10dp"
-        android:background="@android:color/transparent"/>
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
     
     <TextView
         android:id="@+id/tv_given_word"
@@ -23,14 +26,22 @@
         android:layout_marginHorizontal="33dp"
         android:layout_marginTop="86dp"
         android:textSize="50sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ib_close_button"
         />
 
     <LinearLayout
+        android:id="@+id/ll_words"
         android:orientation="vertical"
         android:layout_marginTop="80dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp">
+        android:layout_marginHorizontal="30dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_given_word"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -79,7 +90,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Сломать"/>
+                android:text="Село"/>
 
         </LinearLayout>
 
@@ -105,7 +116,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Сломать"/>
+                android:text="Сон"/>
 
         </LinearLayout>
 
@@ -131,8 +142,68 @@
                 android:layout_marginStart="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Сломать"/>
+                android:text="Галактика"/>
 
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+    
+    <Button
+        android:visibility="gone"
+        android:id="@+id/btn_skip_button"
+        android:text="@string/skip_button_text"
+        android:textAllCaps="true"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/skip_button_color"
+        android:layout_width="310dp"
+        android:layout_height="58dp"/>
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/correct_ansor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_height="136dp">
+
+        <ImageView
+            android:id="@+id/iv_ic_correct"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_correct"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/iv_ic_correct"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_ic_correct"
+            app:layout_constraintTop_toTopOf="@+id/iv_ic_correct"
+            android:layout_marginStart="32dp"
+            android:text="@string/corect"
+            android:textColor="@color/white"
+            android:textSize="22sp"/>
+
+        <Button
+            android:id="@+id/btn_correct_button"
+            android:text="@string/correct_button_text"
+            android:textAllCaps="true"
+            android:textSize="24sp"
+            android:textColor="@color/correct_ansor"
+            android:backgroundTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="24dp"
+            android:layout_width="310dp"
+            android:layout_height="58dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

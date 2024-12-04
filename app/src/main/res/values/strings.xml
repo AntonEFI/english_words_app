@@ -4,4 +4,7 @@
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
+    <string name="skip_button_text">SKIP</string>
+    <string name="correct_button_text">continue</string>
+    <string name="corect">Correct !</string>
 </resources>
