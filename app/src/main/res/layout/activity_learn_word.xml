@@ -8,8 +8,9 @@
 
     <ImageButton
         android:id="@+id/ib_close_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/close_button_desc"
         android:src="@drawable/ic_close"
         android:layout_marginStart="25dp"
         android:layout_marginTop="10dp"
@@ -23,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="GALAXY"
+        android:fontFamily="@font/nunito_bold"
         android:layout_marginHorizontal="33dp"
         android:layout_marginTop="86dp"
         android:textSize="50sp"
@@ -52,18 +54,17 @@
 
             <TextView
                 android:layout_width="40dp"
+                android:fontFamily="@font/nunito_semi_bold"
                 android:layout_height="40dp"
                 android:textSize="16sp"
                 android:gravity="center"
                 android:background="@drawable/corner_round_field"
-                android:textColor="@color/number_color"
+                android:textColor="@color/font_color"
                 android:layout_marginStart="12dp"
                 android:text="@string/one"/>
 
             <TextView
-                android:layout_marginStart="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/TextVariantStyle"
                 android:text="Сломать"/>
 
         </LinearLayout>
@@ -82,14 +83,13 @@
                 android:textSize="16sp"
                 android:gravity="center"
                 android:background="@drawable/corner_round_field"
-                android:textColor="@color/number_color"
+                android:textColor="@color/font_color"
                 android:layout_marginStart="12dp"
+                android:fontFamily="@font/nunito_semi_bold"
                 android:text="@string/two"/>
 
             <TextView
-                android:layout_marginStart="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/TextVariantStyle"
                 android:text="Село"/>
 
         </LinearLayout>
@@ -108,14 +108,13 @@
                 android:textSize="16sp"
                 android:gravity="center"
                 android:background="@drawable/corner_round_field"
-                android:textColor="@color/number_color"
+                android:textColor="@color/font_color"
                 android:layout_marginStart="12dp"
+                android:fontFamily="@font/nunito_semi_bold"
                 android:text="@string/three"/>
 
             <TextView
-                android:layout_marginStart="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/TextVariantStyle"
                 android:text="Сон"/>
 
         </LinearLayout>
@@ -134,14 +133,13 @@
                 android:textSize="16sp"
                 android:gravity="center"
                 android:background="@drawable/corner_round_field"
-                android:textColor="@color/number_color"
+                android:textColor="@color/font_color"
                 android:layout_marginStart="12dp"
+                android:fontFamily="@font/nunito_semi_bold"
                 android:text="@string/four"/>
 
             <TextView
-                android:layout_marginStart="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/TextVariantStyle"
                 android:text="Галактика"/>
 
         </LinearLayout>
@@ -171,6 +169,7 @@
 
         <ImageView
             android:id="@+id/iv_ic_correct"
+            android:contentDescription="@string/correct_image"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="36dp"
@@ -187,15 +186,18 @@
             app:layout_constraintTop_toTopOf="@+id/iv_ic_correct"
             android:layout_marginStart="32dp"
             android:text="@string/corect"
+            android:fontFamily="@font/rubik_regular"
             android:textColor="@color/white"
             android:textSize="22sp"/>
 
-        <Button
+        <android.widget.Button
             android:id="@+id/btn_correct_button"
             android:text="@string/correct_button_text"
             android:textAllCaps="true"
             android:textSize="24sp"
+            android:background="@drawable/shape_button_footer"
             android:textColor="@color/correct_ansor"
+            android:fontFamily="@font/nunito_bold"
             android:backgroundTint="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -3,7 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="number_squer">#E3E3E3</color>
-    <color name="number_color">#888992</color>
+    <color name="font_color">#888992</color>
     <color name="stroke_color">#CCCCD0</color>
     <color name="skip_button_color">#2574FF</color>
     <color name="correct_ansor">#018034</color>
