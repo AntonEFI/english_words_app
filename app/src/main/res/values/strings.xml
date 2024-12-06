@@ -1,10 +1,12 @@
 <resources>
-    <string name="app_name">EnglishWordApp</string>
-    <string name="one">1</string>
-    <string name="two">2</string>
-    <string name="three">3</string>
-    <string name="four">4</string>
+    <string name="app_name" translatable="false">EnglishWordApp</string>
+    <string name="one" translatable="false">1</string>
+    <string name="two" translatable="false">2</string>
+    <string name="three" translatable="false">3</string>
+    <string name="four" translatable="false">4</string>
     <string name="skip_button_text">SKIP</string>
     <string name="correct_button_text">continue</string>
     <string name="corect">Correct !</string>
+    <string name="close_button_desc">close image button</string>
+    <string name="correct_image">Correct answer, thumbs up!</string>
 </resources>
