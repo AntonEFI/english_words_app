@@ -180,29 +180,31 @@
             android:src="@drawable/ic_correct"/>
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@+id/iv_ic_correct"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_ic_correct"
-            app:layout_constraintTop_toTopOf="@+id/iv_ic_correct"
             android:layout_marginStart="32dp"
             android:text="@string/corect"
             android:textColor="@color/white"
-            android:textSize="22sp"/>
-
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_ic_correct"
+            app:layout_constraintStart_toStartOf="@+id/iv_ic_correct"
+            app:layout_constraintTop_toTopOf="@+id/iv_ic_correct" />
+        <!--Всё сехало, на двух устройствах-->
         <Button
             android:id="@+id/btn_correct_button"
+            android:layout_width="310dp"
+            android:layout_height="58dp"
+            android:backgroundTint="@color/white"
             android:text="@string/correct_button_text"
             android:textAllCaps="true"
-            android:textSize="24sp"
             android:textColor="@color/correct_ansor"
-            android:backgroundTint="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="24sp"
+            android:layout_margin="35dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="24dp"
-            android:layout_width="310dp"
-            android:layout_height="58dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
