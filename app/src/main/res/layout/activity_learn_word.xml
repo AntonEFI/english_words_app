@@ -53,14 +53,7 @@
             android:background="@drawable/shape_rounded_values">
 
             <TextView
-                android:layout_width="40dp"
-                android:fontFamily="@font/nunito_semi_bold"
-                android:layout_height="40dp"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:background="@drawable/corner_round_field"
-                android:textColor="@color/font_color"
-                android:layout_marginStart="12dp"
+                style="@style/NumberVariantStyle"
                 android:text="@string/one"/>
 
             <TextView
@@ -78,14 +71,7 @@
             android:background="@drawable/shape_rounded_values">
 
             <TextView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:background="@drawable/corner_round_field"
-                android:textColor="@color/font_color"
-                android:layout_marginStart="12dp"
-                android:fontFamily="@font/nunito_semi_bold"
+                style="@style/NumberVariantStyle"
                 android:text="@string/two"/>
 
             <TextView
@@ -103,14 +89,7 @@
             android:background="@drawable/shape_rounded_values">
 
             <TextView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:background="@drawable/corner_round_field"
-                android:textColor="@color/font_color"
-                android:layout_marginStart="12dp"
-                android:fontFamily="@font/nunito_semi_bold"
+                style="@style/NumberVariantStyle"
                 android:text="@string/three"/>
 
             <TextView
@@ -128,14 +107,7 @@
             android:background="@drawable/shape_rounded_values">
 
             <TextView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:background="@drawable/corner_round_field"
-                android:textColor="@color/font_color"
-                android:layout_marginStart="12dp"
-                android:fontFamily="@font/nunito_semi_bold"
+                style="@style/NumberVariantStyle"
                 android:text="@string/four"/>
 
             <TextView
@@ -191,10 +163,6 @@
             app:layout_constraintBottom_toBottomOf="@+id/iv_ic_correct"
             app:layout_constraintStart_toStartOf="@+id/iv_ic_correct"
             app:layout_constraintTop_toTopOf="@+id/iv_ic_correct" />
-        <!--Всё сехало, на двух устройствах
-        <Button
-            android:textSize="22sp"/>-->
-
 
         <android.widget.Button
             android:id="@+id/btn_correct_button"

@@ -4,4 +4,6 @@
     <dimen name="ques_field_margin_betwen_field">18dp</dimen>
     <dimen name="font_size">16sp</dimen>
     <dimen name="tv_variant_margin_start">8dp</dimen>
+    <dimen name="square_number_size">40dp</dimen>
+    <dimen name="square_number_margin_Start">12dp</dimen>
 </resources>
