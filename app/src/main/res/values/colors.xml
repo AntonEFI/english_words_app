@@ -7,4 +7,6 @@
     <color name="stroke_color">#CCCCD0</color>
     <color name="skip_button_color">#2574FF</color>
     <color name="correct_ansor">#018034</color>
+    <color name="wrong_ansor">#FA0007</color>
+    <color name="wrong_ansor_color_text">#FA0007</color>
 </resources>

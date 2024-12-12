@@ -6,4 +6,5 @@
     <dimen name="tv_variant_margin_start">8dp</dimen>
     <dimen name="square_number_size">40dp</dimen>
     <dimen name="square_number_margin_Start">12dp</dimen>
+    <dimen name="width_stroke">1dp</dimen>
 </resources>

@@ -19,4 +19,24 @@
         <item name="android:layout_marginStart">@dimen/square_number_margin_Start</item>
         <item name="android:fontFamily">@font/nunito_semi_bold</item>
     </style>
+
+    <style name="TextWrongStyle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/rubik_regular</item>
+        <item name="android:textSize">@dimen/font_size</item>
+        <item name="android:textColor">@color/wrong_ansor_color_text</item>
+        <item name="android:layout_marginStart">@dimen/tv_variant_margin_start</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="NumberWrongAnsor" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">@dimen/square_number_size</item>
+        <item name="android:layout_height">@dimen/square_number_size</item>
+        <item name="android:textSize">@dimen/font_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/wrong_ansor_squer</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_marginStart">@dimen/square_number_margin_Start</item>
+        <item name="android:fontFamily">@font/nunito_semi_bold</item>
+    </style>
 </resources>
