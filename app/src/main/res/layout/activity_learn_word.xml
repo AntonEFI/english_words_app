@@ -34,7 +34,7 @@
         />
 
     <LinearLayout
-        android:id="@+id/ll_words"
+        android:id="@+id/ll_words_list"
         android:orientation="vertical"
         android:layout_marginTop="80dp"
         android:layout_width="match_parent"

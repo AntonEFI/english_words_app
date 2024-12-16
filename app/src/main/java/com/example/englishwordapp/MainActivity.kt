@@ -2,11 +2,15 @@ package com.example.englishwordapp
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.view.children
+import androidx.core.view.get
 import androidx.core.view.isVisible
 import com.example.englishwordapp.databinding.ActivityLearnWordBinding
 
@@ -23,41 +27,47 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityLearnWordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        //TODO Всё ещё упростить этот код. и прятать или показывать Correct и вот всё это .по умолчанию SKIP
+
         with(binding){
+            for (i in 0 until llWordsList.childCount){
 
-            llFirstBlock.setOnClickListener{
+                if (i == 3){//Если правильный индекс
+                    val v: View = llWordsList.getChildAt(i)
 
-                val firstBlock : LinearLayout = llFirstBlock
-                val firstBlockNumber: TextView = findViewById(R.id.tv_Variant_number_1)
-                val firstBlcokText: TextView = findViewById(R.id.tv_Variant_text_1)
+                    val ll: LinearLayout = v as LinearLayout
+                    ll.setOnClickListener {
 
-                markAnswerUncorrect(firstBlock, firstBlockNumber, firstBlcokText)
-                //Нужно брать LinearLayout
-                //tv_Variant_number_1
-                //tv_Variant_text_1, а может вообще слово
-            }
-            llSecondBlock.setOnClickListener{
-                val secondBlock : LinearLayout = llSecondBlock
-                val secondBlockNumber: TextView = findViewById(R.id.tv_Variant_number_2)
-                val secondBlcokText: TextView = findViewById(R.id.tv_Variant_text_2)
+                        val num: View? = ll.getChildAt(0)
 
-                markAnswerUncorrect(secondBlock, secondBlockNumber, secondBlcokText)
-            }
-            llThirdBlock.setOnClickListener{
+                        val number: TextView = num as TextView
 
-                val thirdBlock : LinearLayout = llThirdBlock
-                val thirdBlockNumber: TextView = findViewById(R.id.tv_Variant_number_3)
-                val thirdBlcokText: TextView = findViewById(R.id.tv_Variant_text_3)
+                        val text: View? = ll.getChildAt(1)
 
-                markAnswerUncorrect(thirdBlock,thirdBlockNumber, thirdBlcokText)
-            }
-            llFourBlock.setOnClickListener {
+                        val word: TextView = text as TextView
 
-                val fourBlock : LinearLayout = llFourBlock
-                val fourBlockNumber: TextView = findViewById(R.id.tv_Variant_number_4)
-                val fourBlcokText: TextView = findViewById(R.id.tv_Variant_text_4)
+                        markAnswerCorrect(ll, number, word)
+                    }
+                }
+                else{
+                    val v: View = llWordsList.getChildAt(i)
 
-                markAnswerCorrect(fourBlock, fourBlockNumber, fourBlcokText)
+                    val ll: LinearLayout = v as LinearLayout
+
+                    ll.setOnClickListener{
+//
+                        val num: View? = ll.getChildAt(0)
+
+                        val number: TextView = num as TextView
+
+                        val text: View? = ll.getChildAt(1)
+
+                        val word: TextView = text as TextView
+
+                        markAnswerUncorrect(ll, number, word)
+                    }
+                }
             }
         }
         //Нейтральный
@@ -65,13 +75,25 @@ class MainActivity : AppCompatActivity() {
     //В любом случае мне нужно в методы отправлять два TextView и менять им стили
     //Сейчас получаеться отстой потому-что в случае верного ответа. Мне нужно переключать стили
     private fun markAnswerCorrect(linerLayout: LinearLayout, number:TextView, word: TextView) { //Корректный ответ
+
         linerLayout.background = resources.getDrawable(R.drawable.right_ansor_values_shape)
-        //number.style = resources. //Как задать стиль через код
+        number.background = resources.getDrawable(R.drawable.right_ansor_squer)
+
+        number.setTextColor(ContextCompat.getColor(this, R.color.white))
+        word.setTextColor(ContextCompat.getColor(this, R.color.correct_ansor))
+
         Log.d("Correct", "This right ansor")
     }
 
     //Сейчас получаеться отстой потому-что в случае неверного ответа. Мне нужно переключать стили
     private fun markAnswerUncorrect(linerLayout: LinearLayout, number:TextView, word: TextView){ //Неверный ответ
+
+        linerLayout.background = resources.getDrawable(R.drawable.wrong_ansor_values_shape)
+        number.background = resources.getDrawable(R.drawable.wrong_ansor_squer)
+
+        number.setTextColor(ContextCompat.getColor(this, R.color.white))
+        word.setTextColor(ContextCompat.getColor(this, R.color.wrong_ansor_color_text))
+
         Log.d("Uncorrect", "This not right ansor")
     }
 }
