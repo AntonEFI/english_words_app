@@ -2,6 +2,7 @@
     <string name="skip_button_text">ПРОПУСТИТЬ</string>
     <string name="correct_button_text">продолжить</string>
     <string name="corect">Верно !</string>
+    <string name="wrong">Не верно!</string>
     <string name="close_button_desc">кнопка с изображением, крестик закрыть</string>
     <string name="correct_image">Правильный ответ, большой палец вверх!</string>
 </resources>

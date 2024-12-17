@@ -144,6 +144,7 @@
         android:layout_height="58dp"/>
     
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_correct_block"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="visible"
@@ -151,7 +152,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_height="136dp"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <ImageView
             android:id="@+id/iv_ic_correct"
@@ -165,14 +166,13 @@
             android:src="@drawable/ic_correct"/>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tv_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:text="@string/corect"
             android:fontFamily="@font/rubik_regular"
             android:textColor="@color/white"
-
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="@+id/iv_ic_correct"
             app:layout_constraintStart_toStartOf="@+id/iv_ic_correct"
@@ -193,7 +193,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_result" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

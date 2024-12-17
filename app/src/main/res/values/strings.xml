@@ -7,6 +7,7 @@
     <string name="skip_button_text">SKIP</string>
     <string name="correct_button_text">continue</string>
     <string name="corect">Correct !</string>
+    <string name="wrong">Wrong !</string>
     <string name="close_button_desc">close image button</string>
     <string name="correct_image">Correct answer, thumbs up!</string>
 </resources>
