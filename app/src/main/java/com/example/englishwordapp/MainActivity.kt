@@ -10,6 +10,8 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+
+import Dictionary.LearnWords
 import com.example.englishwordapp.databinding.ActivityLearnWordBinding
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +28,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        //TODO прятать или показывать Correct и вот всё это .по умолчанию SKIP
+        //TODO возвращать словарь слов
+
+        val dictionary = LearnWords()
+
+        val x = dictionary.SmallDictionary()//Возвращает одно слово, а не несколько
 
         with(binding){
 
@@ -35,6 +41,8 @@ class MainActivity : AppCompatActivity() {
             correctBlock.visibility = View.GONE
 
             for (i in 0 until llWordsList.childCount){
+
+                Log.d("Dictionary Size", "Dictionary size_2 - ${x.size}")
 
                 if (i == 3){//Если правильный индекс
                     val v: View = llWordsList.getChildAt(i)
@@ -95,8 +103,7 @@ class MainActivity : AppCompatActivity() {
 
         correctBlock.visibility = View.VISIBLE
 
-        //Там из-за того, что src нельзя так просто поменять
-        binding.ivIcCorrect.background = resources.getDrawable(R.drawable.ic_wrong__1)
+        binding.ivIcCorrect.setImageResource(R.drawable.ic_wrong__1)
 
         binding.tvResult.text = resources.getText(R.string.wrong)
         binding.btnCorrectButton.setTextColor(ContextCompat.getColor(this, R.color.wrong_ansor_color_text))
