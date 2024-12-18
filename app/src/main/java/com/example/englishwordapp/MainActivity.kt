@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
 import Dictionary.LearnWords
+import androidx.core.os.registerForAllProfilingResults
 import com.example.englishwordapp.databinding.ActivityLearnWordBinding
 
 class MainActivity : AppCompatActivity() {
@@ -28,11 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        //TODO возвращать словарь слов
-
-        val dictionary = LearnWords()
-
-        val x = dictionary.SmallDictionary()//Возвращает одно слово, а не несколько
+        //TODO праверка правильности
 
         with(binding){
 
@@ -40,9 +37,13 @@ class MainActivity : AppCompatActivity() {
 
             correctBlock.visibility = View.GONE
 
+            fillInTheOptions() // Всё красиво заполняються поля.
+
+            // Теперь нужна проверка правильности.
+            //Тоесть если я нажал по правильному варианту то я отправляюсь в метод правильного
+
             for (i in 0 until llWordsList.childCount){
 
-                Log.d("Dictionary Size", "Dictionary size_2 - ${x.size}")
 
                 if (i == 3){//Если правильный индекс
                     val v: View = llWordsList.getChildAt(i)
@@ -80,6 +81,22 @@ class MainActivity : AppCompatActivity() {
         //Нейтральный
     }
 
+    private fun fillInTheOptions(){
+
+        val dictionary = LearnWords()
+
+        val dictionary_four = dictionary.SmallDictionary()//Нормальный словарь вернулся.
+
+        val keyList = dictionary_four.keys.toList()
+
+        for (i in 0 until dictionary_four.size){
+
+            val wordVariant = (binding.llWordsList.getChildAt(i) as LinearLayout).getChildAt(1) as TextView
+
+            wordVariant.text = keyList[i]
+        }
+    }
+
     private fun markAnswerCorrect(linerLayout: LinearLayout, number:TextView, word: TextView, correctBlock: View) { //Корректный ответ
 
         linerLayout.background = resources.getDrawable(R.drawable.right_ansor_values_shape)
@@ -89,8 +106,6 @@ class MainActivity : AppCompatActivity() {
         word.setTextColor(ContextCompat.getColor(this, R.color.correct_ansor))
 
         correctBlock.visibility = View.VISIBLE//SKIP нужно скрывать
-
-        Log.d("Correct", "This right ansor")
     }
 
     private fun markAnswerUncorrect(linerLayout: LinearLayout, number:TextView, word: TextView, correctBlock: View){ //Неверный ответ
@@ -109,7 +124,5 @@ class MainActivity : AppCompatActivity() {
         binding.btnCorrectButton.setTextColor(ContextCompat.getColor(this, R.color.wrong_ansor_color_text))
 
         correctBlock.setBackgroundColor(ContextCompat.getColor(this, R.color.wrong_ansor))
-
-        Log.d("Uncorrect", "This not right ansor")
     }
 }

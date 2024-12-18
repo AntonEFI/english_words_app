@@ -1,8 +1,5 @@
 package Dictionary
 
-import android.util.Log
-import android.widget.Toast
-import java.util.Dictionary
 import java.util.Random
 
 
@@ -831,16 +828,16 @@ class LearnWords {
 
         var smallDict = mutableMapOf<String, String>()
 
-        var i : Int = 0
+        for (i in smallDict.size until 4){
 
-        //Нужно брать случайные элементы и добавлять их в словарь
-        while (i < 5){
-            val random = Random().nextInt(dictionaryOfUnlearnedWords.size)
-            smallDict[dictionaryOfUnlearnedWords[random]._aWordInTheLanguage_I_Know] = dictionaryOfUnlearnedWords[random]._aWordInTheLanguage_I_Learning
-            //Всё верно, но почему-то добавляется только одно слово.
-            i++
+            var random = Random()
+
+            var randomIndex = random.nextInt(dictionaryOfUnlearnedWords.size)
+
+            var word: String = dictionaryOfUnlearnedWords[randomIndex].aWordInTheLanguage_IKnow
+
+            smallDict[word] = dictionaryOfUnlearnedWords[randomIndex].aWordInTheLanguage_ILearning
         }
-
         return  smallDict
     }
 }
