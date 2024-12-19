@@ -1,25 +1,27 @@
 package com.example.englishwordapp
 
-import android.graphics.Color
-import android.graphics.PorterDuff
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-
 import Dictionary.LearnWords
-import androidx.core.os.registerForAllProfilingResults
+import android.content.Intent
+import android.widget.Button
 import com.example.englishwordapp.databinding.ActivityLearnWordBinding
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
     private var _binding: ActivityLearnWordBinding? = null
     private val binding
         get() = _binding ?: throw IllegalStateException("Binding have null")
+
+    val dictionary = LearnWords()
+
+    val dictionary_four = dictionary.SmallDictionary()//Нормальный словарь вернулся.
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +30,26 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityLearnWordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //TODO При нажатии кнопки SKIP и при правильном и неправильном ответе . Всегда при нажатии кнопки.
+        //Вот,что важно. При нажатии мне нужны новые слова и новое
 
-        //TODO праверка правильности
+        val correctButton: Button = binding.btnCorrectButton
 
+        val skipButton: Button = binding.btnSkipButton
+
+        correctButton.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+
+            startActivity(intent)
+        }
+
+        skipButton.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+
+            startActivity(intent)
+        }
+        //Проверка правильности можно перенести в отдельный метод
+        //Короче работает, лучше чем я думал.
         with(binding){
 
             val correctBlock: View = clCorrectBlock
@@ -39,53 +58,57 @@ class MainActivity : AppCompatActivity() {
 
             fillInTheOptions() // Всё красиво заполняються поля.
 
-            // Теперь нужна проверка правильности.
-            //Тоесть если я нажал по правильному варианту то я отправляюсь в метод правильного
-
-            for (i in 0 until llWordsList.childCount){
-
-
-                if (i == 3){//Если правильный индекс
-                    val v: View = llWordsList.getChildAt(i)
-
-                    val ll: LinearLayout = v as LinearLayout
-                    ll.setOnClickListener {
-
-                        btnSkipButton.visibility = View.INVISIBLE//Прячем кнопку SKIP
-
-                        val number: TextView = ll.getChildAt(0) as TextView
-
-                        val word: TextView = ll.getChildAt(1) as TextView
-
-                        markAnswerCorrect(ll, number, word, correctBlock)
-                    }
-                }
-                else{
-                    val v: View = llWordsList.getChildAt(i)
-
-                    val ll: LinearLayout = v as LinearLayout
-
-                    ll.setOnClickListener{
-
-                        btnSkipButton.visibility = View.INVISIBLE//Прячем кнопку SKIP
-
-                        val number: TextView = ll.getChildAt(0) as TextView
-
-                        val word: TextView = ll.getChildAt(1) as TextView
-
-                        markAnswerUncorrect(ll, number, word, correctBlock)
-                    }
-                }
-            }
+            CheckRightOrNot(llWordsList, correctBlock)
         }
         //Нейтральный
     }
 
+    private fun CheckRightOrNot(linerLayout: LinearLayout, correctBlock: View){
+        for (i in 0 until linerLayout.childCount){
+
+            val llBlock: LinearLayout = linerLayout.getChildAt(i) as LinearLayout
+
+            llBlock.setOnClickListener {
+
+                val textStr: TextView = llBlock.getChildAt(1) as TextView
+
+                val strOnPress : String = textStr.text.toString() //По ключу полуаем значение //Переменная для хранения строки из нажатой TextView
+
+                if (dictionary_four.get(strOnPress) == binding.tvGivenWord.text.toString())//Получаю загаданное слово
+                {
+
+                    binding.btnSkipButton.visibility = View.INVISIBLE//Прячем кнопку SKIP
+
+                    val number: TextView = llBlock.getChildAt(0) as TextView
+
+                    val word: TextView = llBlock.getChildAt(1) as TextView
+
+                    markAnswerCorrect(llBlock, number, word, correctBlock)
+
+                }
+
+                else {
+
+                    binding.btnSkipButton.visibility = View.INVISIBLE//Прячем кнопку SKIP
+
+                    val number: TextView = llBlock.getChildAt(0) as TextView
+
+                    val word: TextView = llBlock.getChildAt(1) as TextView
+
+                    markAnswerUncorrect(llBlock, number, word, correctBlock)
+
+                }
+
+            }
+
+        }
+    }
+
     private fun fillInTheOptions(){
 
-        val dictionary = LearnWords()
+        val tvQuestWord: TextView = binding.tvGivenWord
 
-        val dictionary_four = dictionary.SmallDictionary()//Нормальный словарь вернулся.
+        tvQuestWord.text = dictionary_four.values.toList().get(Random.nextInt(dictionary_four.size))
 
         val keyList = dictionary_four.keys.toList()
 
