@@ -8,15 +8,16 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import Dictionary.LearnWords.Companion
 import android.content.Intent
 import android.widget.Button
+import android.widget.ImageView
 import com.example.englishwordapp.databinding.ActivityLearnWordBinding
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
-    //TODO 1 кнопка закрыть закрывает приложение 2 Горизонтальный вид 3 Ночной режим 4 оптимизация 5 Регистрация 6 Сериализация слов
+    //TODO 2 Доработать горизонтальный вид. Возможно буду переписывать код для работы с каждым элементом
+    // 3 Ночной режим 4 оптимизация 5 Регистрация 6 Сериализация слов
     private var _binding: ActivityLearnWordBinding? = null
     private val binding
         get() = _binding ?: throw IllegalStateException("Binding have null")
@@ -49,8 +50,13 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(intent)
         }
-        //Проверка правильности можно перенести в отдельный метод
-        //Короче работает, лучше чем я думал.
+
+        val ivCloseButton: ImageView = findViewById(R.id.ib_close_button)
+
+        ivCloseButton.setOnClickListener{
+            System.exit(0)//На телефоне Закрывается
+        }
+
         with(binding){
 
             val correctBlock: View = clCorrectBlock
@@ -64,7 +70,7 @@ class MainActivity : AppCompatActivity() {
             CheckRightOrNot(llWordsList, correctBlock)
         }
     }
-    private fun  setScore(){//Жалуется
+    private fun  setScore(){
         val arr: Array<Int> = dictionary.returnCountWords()
 
         binding.tvScore.text = "${arr[0].toString()} / ${arr[1].toString()}"
