@@ -2,7 +2,7 @@
 <resources>
     <dimen name="corner">10dp</dimen>
     <dimen name="ques_field_margin_betwen_field">18dp</dimen>
-    <dimen name="ques_field_margin_betwen_field_landscape">10dp</dimen>
+    <dimen name="ques_field_margin_betwen_field_landscape">15dp</dimen>
     <dimen name="font_size">16sp</dimen>
     <dimen name="tv_variant_margin_start">8dp</dimen>
     <dimen name="square_number_size">40dp</dimen>

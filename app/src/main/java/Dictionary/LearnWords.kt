@@ -826,7 +826,7 @@ public class LearnWords {
 
     }
         //Мне нужно создать словарь всех невыученных слов. И возвращать словарь с 4 элементами
-        fun SmallDictionary(): MutableMap<String, String>{
+        fun SmallDictionary(): Map<String, String>{
             val dictionaryOfUnlearnedWords = dictionary.filter { it -> it._thisWordIDontNow == false }
 
             var smallDict = mutableMapOf<String, String>()
